@@ -14,7 +14,6 @@ public class ReadingWritingToFile {
 	public static void main(String[] args) throws IOException {
 		// TODO Auto-generated method stub
 		
-		
 		//Create a file on your file system
 		String TestFile = "C:\\tmp\\notes.txt";
 		
@@ -36,13 +35,18 @@ public class ReadingWritingToFile {
 		//Reading from file
 		//Create object of Java FileWriter and BufferedReader class
 		FileReader fileReader = new FileReader(TestFile);
-		BufferedReader bufferedReader = new BufferedReader(fileReader);
-		String Content = "";
+		
+		//BufferedReader bufferedReader = new BufferedReader(fileReader);
+		//String Content = "";
+		//note the code above caused a leak and was replaced by the try code below
+		
+		try (BufferedReader bufferedReader = new BufferedReader(fileReader)) {
+			String Content = "";
 			
 		//Loop to read all lines in the file and print it
 		while((Content = bufferedReader.readLine()) != null) {
 			System.out.println(Content);
-			
+			}
 		}
 	}
 }
