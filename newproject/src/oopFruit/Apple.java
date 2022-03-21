@@ -2,7 +2,7 @@ package oopFruit;
 
 public class Apple {
 
-	public static void main(String[] args) {
+	public static void Main(String[] args) {
 		// TODO Auto-generated method stub
 		
 		//create an instance of Fruits
